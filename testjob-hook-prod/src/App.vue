@@ -18,14 +18,16 @@
               </ul>
               <span class="dropdown__label">London</span>
           </div>
-        <div class="content-form__input-group content-form__input-group--3">
+        <div class="content-form__input-group">
           <div class="content-form__input-text">
               <input
                 type="text"
                 name="flat"
                 class="content-form__input content-form__flat"
                 placeholder="Flat"
-                @focus="focusedFlat = true" @blur="focusedFlat = false"
+                v-model="flatValue"
+                @focus="focusedFlat = true"
+                @blur="focusedFlat = !flatValue ? false : true"
                 :class="{ 'content-form__input-text--focus':focusedFlat }"
               >
               <span class="content-form__input-label" v-show="focusedFlat">Flat</span>
@@ -36,7 +38,9 @@
               name="floor"
               class="content-form__input content-form__floor"
               placeholder="Floor"
-              @focus="focusedFloor = true" @blur="focusedFloor = false"
+              v-model="floorValue"
+              @focus="focusedFloor = true"
+              @blur="focusedFloor = !floorValue ? false : true"
               :class="{ 'content-form__input-text--focus':focusedFloor }"
             >
             <span class="content-form__input-label" v-show="focusedFloor">Floor</span>
@@ -47,7 +51,9 @@
               name="block"
               class="content-form__input content-form__block"
               placeholder="Block"
-              @focus="focusedBlock = true" @blur="focusedBlock = false"
+              v-model="blockValue"
+              @focus="focusedBlock = true"
+              @blur="focusedBlock = !blockValue ? false : true"
               :class="{ 'content-form__input-text--focus':focusedBlock }"
             >
             <span class="content-form__input-label" v-show="focusedBlock">Block</span>
@@ -68,6 +74,10 @@ export default {
     focusedFloor: false,
     focusedBlock: false,
     isDropdownOn: false,
+
+    flatValue: null,
+    floorValue: null,
+    blockValue: null,
   }),
   name: 'app',
   methods: {
@@ -138,13 +148,14 @@ export default {
     z-index: 9999;
   }
   .content-form__input-group {
-    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
   }
   .content-form__input-text {
     position: relative;
+    width: calc(1/3*100% - (1 - 1/3)*10px);
+    margin: 0 0 10px;
+    padding: 0;
   }
   .content-form__input {
     border: 1px solid #EBEBEB;
@@ -163,9 +174,8 @@ export default {
     color: #C4C4C4;
   }
   .content-form__flat, .content-form__floor, .content-form__block {
-    width: 87.52%;
+    width: 100%;
     padding: 16px 11px 13px 11px;
-    margin-right: 9px;
   }
   .content-form__input-text--focus {
     padding: 22px 11px 7px 11px;
@@ -177,6 +187,7 @@ export default {
 // Select c dropdown на JS
 
 .dropdown {
+    width: 100%;
     position: relative;
 }
 
@@ -189,7 +200,7 @@ export default {
     height: 100%;
     border: 1px solid #EBEBEB;
     border-radius: 8px;
-    padding: 5px 35px 24px 12px;
+    padding: 5px 30px 24px 12px;
     margin-bottom: 10px;
     font-size: 14px;
     overflow: hidden;
