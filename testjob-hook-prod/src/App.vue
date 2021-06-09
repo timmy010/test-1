@@ -13,7 +13,7 @@
                 class="dropdown__button dropdown__button--rotate"
                 @click="openDropdown"
               >SE1 6DR, 42 Newington Causeway</button>
-              <ul class="dropdown__list" v-show="isDropdownOn">
+              <ul class="dropdown__list" v-if="isDropdownOn">
                   <li class="dropdown__list-item" data-value="phone">SE1 6DR, 42 Newington Causeway</li>
               </ul>
               <span class="dropdown__label">London</span>
@@ -60,6 +60,40 @@
           </div>
         </div>
       </form>
+      <!-- TODO: Сделать еще несколько товаров с разными вариациями вывода -->
+      <section class="cart-items" v-for="item in products" :key="item.id">
+        <h3 class="content__title">{{ products.length }} items</h3>
+        <div class="cart-items__wrapper">
+          <div class="cart-items__item">
+            <a href="#" class="cart-item__details">Details</a>
+            <img src="./assets/img/item.png" alt="" class="cart-item__img">
+            <div class="cart-item__about-item">
+              <p class="cart-item__title">{{ item.title }}</p>
+              <span
+                class="cart-item__offer"
+                v-if="item.oldPrice"
+              >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span>
+              <span class="cart-item__offer" v-if="item.offer">Special offer:<strong>{{ item.offer }}</strong></span>
+              <div class="cart-item__prices">
+                <div class="cart-item__current-price">
+                  <span class="cart-item__price">£ {{ item.price }}</span>
+                  <span class="cart-item__price-detail">1 pc / £{{ item.price }}</span>
+                </div>
+                <span class="cart-item__price-old" v-if="item.oldPrice">£ {{ item.oldPrice }}</span>
+              </div>
+            </div>
+            <!-- TODO: Сделать Counter:
+            Перенести baseCounter из курсача по Vue, страница Cart изменив стили
+            С обязательным использованием Store -->
+            <div class="item-counter cart-item__buttons">
+              <button class="item-counter__add">Add</button>
+              <button class="item-counter__decrement"></button>
+              <span class="item-counter__counter">2</span>
+              <button class="item-counter__increment"></button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <!-- <router-view/> -->
   </div>
@@ -67,6 +101,7 @@
 </template>
 
 <script>
+import products from './data/products';
 
 export default {
   data: () => ({
@@ -80,6 +115,11 @@ export default {
     blockValue: null,
   }),
   name: 'app',
+  computed: {
+    products() {
+      return products;
+    },
+  },
   methods: {
     openDropdown(e) {
       e.preventDefault();
@@ -90,188 +130,7 @@ export default {
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-       url('./assets/fonts/noto-sans-v12-latin_cyrillic-regular.woff2') format('woff2'),
-       url('./assets/fonts/noto-sans-v12-latin_cyrillic-regular.woff') format('woff');
-}
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    max-width: 360px;
-    background: #E5E5E5;
-    font-family: 'Noto Sans';
-  }
-  button {
-    background-color: unset;
-    border: 0;
-    padding: 0;
-    margin: 0;
-  }
-  .header {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    top: 0;
-    background: #FFB000;
-    border-radius: 0px 0px 8px 8px;
-  }
-  .title {
-    text-align: center;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-  }
-  .back-btn {
-    position: absolute;
-    top: 17px;
-    left: 23px;
-    width: 13px;
-    height: 14px;
-    background-image: url('./assets/back-btn.svg');
-    background-size: 13px 14px;
-    background-position: center;
-  }
-  .container {
-    width: 100%;
-    padding: 0 24px;
-  }
-  .content {
-    width: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 1px 18px 18px;
-    z-index: 9999;
-  }
-  .content-form__input-group {
-    display: flex;
-    justify-content: space-between;
-  }
-  .content-form__input-text {
-    position: relative;
-    width: calc(1/3*100% - (1 - 1/3)*10px);
-    margin: 0 0 10px;
-    padding: 0;
-  }
-  .content-form__input {
-    border: 1px solid #EBEBEB;
-    border-radius: 8px;
-    padding-left: 11px;
-    outline: none;
-  }
-  .content-form__input:focus {
-    border-color: #FFB000;
-  }
-  .content-form__input-label {
-    position: absolute;
-    top: 3px;
-    left: 11px;
-    font-size: 12px;
-    color: #C4C4C4;
-  }
-  .content-form__flat, .content-form__floor, .content-form__block {
-    width: 100%;
-    padding: 16px 11px 13px 11px;
-  }
-  .content-form__input-text--focus {
-    padding: 22px 11px 7px 11px;
-  }
-  .content-form__block {
-    margin-right: 0;
-  }
-
-// Select c dropdown на JS
-
-.dropdown {
-    width: 100%;
-    position: relative;
-}
-
-.dropdown__button {
-    position: relative;
-    display: block;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    height: 100%;
-    border: 1px solid #EBEBEB;
-    border-radius: 8px;
-    padding: 5px 30px 24px 12px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.dropdown__button:focus, .dropdown__button--active {
-    outline: none;
-}
-
-.dropdown__button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    right: 9px;
-    background-image: url('./assets/arrow.svg');
-    background-position: center center;
-    background-size: 12px 12px;
-    background-repeat: no-repeat;
-    border: 0;
-    pointer-events: none;
-}
-
-.rotate::after {
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.dropdown__list {
-    position: absolute;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    background: #fff;
-    overflow: hidden;
-    border-left: 1px solid #EBEBEB;
-    border-right: 1px solid #EBEBEB;
-    border-radius: 8px;
-    width: 100%;
-    z-index: 1;
-}
-
-.dropdown__list--visible {
-    display: block;
-}
-
-.dropdown__list-item {
-    margin: 0;
-    padding: 0;
-    padding: 5px 32px 5px 12px;
-    cursor: pointer;
-}
-
-.dropdown__list-item:last-child {
-    border-bottom: 1px solid #C8C5D1;
-}
-
-.dropdown__list-item:hover {
-    background: #E7E5EB50;
-}
-
-.dropdown__label {
-  position: absolute;
-  bottom: 5px;
-  left: 12px;
-  font-size: 12px;
-  color: #C4C4C4;
-}
+@import './assets/scss/font.scss';
+@import './assets/scss/main.scss';
 
 </style>
