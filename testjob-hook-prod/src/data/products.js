@@ -6,7 +6,7 @@ export default [
     // oldPrice: 1.59,
     offer: '-20%',
     image: 'item.png',
-    amount: 1,
+    amount: 0,
   },
   {
     id: 2,

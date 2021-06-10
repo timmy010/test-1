@@ -31,7 +31,7 @@ export default {
         return this.amount;
       },
       set(value) {
-        if (value > 0) {
+        if (value >= 0) {
           this.$emit('update:amount', value);
         }
       },
