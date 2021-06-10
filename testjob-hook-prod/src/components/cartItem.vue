@@ -48,6 +48,7 @@ export default {
   justify-content: space-between;
   border-bottom: 1px solid #C4C4C450;
   padding: 12px 0;
+  position: relative;
 }
 .cart-item {
   display: block;
@@ -104,7 +105,25 @@ export default {
     color: #878786;
   }
   &__details {
-    display: none;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  &__details::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    width: 12px;
+    height: 6px;
+    background-image: url('../assets/img/arrow-details.svg');
+    background-size: 12px 6px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 </style>
