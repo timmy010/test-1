@@ -1,6 +1,6 @@
 <template>
   <div class="cart-items__item">
-    <a href="#" class="cart-item__details">Details</a>
+    <router-link tag="a" class="cart-item__details" :to="{name: 'product', params: {id: item.id}}">Details</router-link>
     <img :src="require(`@/assets/img/${item.image}`)" :alt="item.title" class="cart-item__img">
     <div class="cart-item__about-item">
       <p class="cart-item__title">{{ item.title }}</p>

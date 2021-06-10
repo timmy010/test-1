@@ -2,7 +2,8 @@
 <div>
   <div class="header">
     <h2 class="title">Cart</h2>
-    <button class="back-btn"></button>
+    <!-- <router-link tag="button" class="back-btn" :to="{ name: 'cart' }"></router-link> -->
+    <button class="back-btn" @click.prevent="goBack"></button>
   </div>
   <div class="container">
     <router-view/>
@@ -13,7 +14,15 @@
 <script>
 
 export default {
-
+  methods: {
+    goBack() {
+      if (window.history.length > 1) {
+        this.$router.go(-1);
+      } else {
+        this.$router.push('/');
+      }
+    },
+  },
 };
 </script>
 
@@ -31,6 +40,11 @@ export default {
     border: 0;
     padding: 0;
     margin: 0;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  button:hover {
+    opacity: 0.5;
   }
   .header {
     position: relative;
