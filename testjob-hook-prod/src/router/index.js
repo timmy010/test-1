@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import MainPage from '@/views/MainPage.vue';
+import CartPage from '@/views/CartPage.vue';
 import ProductPage from '@/views/ProductPage.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    name: 'main',
-    component: MainPage,
+    name: 'cart',
+    component: CartPage,
     path: '/',
   },
   {

@@ -16,7 +16,5 @@
     "url": "https://github.com/timmy010/test-1/issues"
   },
   "homepage": "https://github.com/timmy010/test-1#readme",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+  "dependencies": {}
 }

@@ -11,7 +11,7 @@
           <div class="dropdown">
               <button
                 class="dropdown__button dropdown__button--rotate"
-                @click="openDropdown"
+                @click.prevent="openDropdown"
               >SE1 6DR, 42 Newington Causeway</button>
               <ul class="dropdown__list" v-if="isDropdownOn">
                   <li class="dropdown__list-item" data-value="phone">SE1 6DR, 42 Newington Causeway</li>
@@ -61,37 +61,10 @@
         </div>
       </form>
       <!-- TODO: Сделать еще несколько товаров с разными вариациями вывода -->
-      <section class="cart-items" v-for="item in products" :key="item.id">
+      <section class="cart-items">
         <h3 class="content__title">{{ products.length }} items</h3>
         <div class="cart-items__wrapper">
-          <div class="cart-items__item">
-            <a href="#" class="cart-item__details">Details</a>
-            <img src="./assets/img/item.png" alt="" class="cart-item__img">
-            <div class="cart-item__about-item">
-              <p class="cart-item__title">{{ item.title }}</p>
-              <span
-                class="cart-item__offer"
-                v-if="item.oldPrice"
-              >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span>
-              <span class="cart-item__offer" v-if="item.offer">Special offer:<strong>{{ item.offer }}</strong></span>
-              <div class="cart-item__prices">
-                <div class="cart-item__current-price">
-                  <span class="cart-item__price">£ {{ item.price }}</span>
-                  <span class="cart-item__price-detail">1 pc / £{{ item.price }}</span>
-                </div>
-                <span class="cart-item__price-old" v-if="item.oldPrice">£ {{ item.oldPrice }}</span>
-              </div>
-            </div>
-            <!-- TODO: Сделать Counter:
-            Перенести baseCounter из курсача по Vue, страница Cart изменив стили
-            С обязательным использованием Store -->
-            <div class="item-counter cart-item__buttons">
-              <button class="item-counter__add">Add</button>
-              <button class="item-counter__decrement"></button>
-              <span class="item-counter__counter">2</span>
-              <button class="item-counter__increment"></button>
-            </div>
-          </div>
+          <cartItem :item="item" v-for="item in products" :key="item.id"/>
         </div>
       </section>
     </div>
@@ -101,6 +74,7 @@
 </template>
 
 <script>
+import cartItem from '@/components/cartItem.vue';
 import products from './data/products';
 
 export default {
@@ -115,14 +89,14 @@ export default {
     blockValue: null,
   }),
   name: 'app',
+  components: { cartItem },
   computed: {
     products() {
       return products;
     },
   },
   methods: {
-    openDropdown(e) {
-      e.preventDefault();
+    openDropdown() {
       this.isDropdownOn = !this.isDropdownOn;
     },
   },
