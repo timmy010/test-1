@@ -3,19 +3,23 @@
     <router-link tag="a" class="cart-item__details" :to="{name: 'product', params: {id: item.id}}">Details</router-link>
     <img :src="require(`@/assets/img/${item.image}`)" :alt="item.title" class="cart-item__img">
     <div class="cart-item__about-item">
-      <p class="cart-item__title">{{ item.title }}</p>
+      <p
+        class="cart-item__title"
+        :class="{ 'cart-item__title--wrap': item.offer || item.oldPrice }"
+      >{{ item.title }}</p>
       <span
         class="cart-item__offer"
         v-if="item.oldPrice"
       >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span>
       <span class="cart-item__offer" v-if="item.offer">Special offer:<strong>{{ item.offer }}</strong></span>
-      <div class="cart-item__prices">
+      <!-- <div class="cart-item__prices">
         <div class="cart-item__current-price">
           <span class="cart-item__price">£ {{ item.price }}</span>
           <span class="cart-item__price-detail">1 pc / £{{ item.price }}</span>
         </div>
         <span class="cart-item__price-old" v-if="item.oldPrice">£ {{ item.oldPrice }}</span>
-      </div>
+      </div> -->
+      <basePrices :item="item"/>
     </div>
     <baseCounter :amount.sync="amount"/>
   </div>
@@ -23,12 +27,13 @@
 
 <script>
 import baseCounter from '@/components/baseCounter.vue';
+import basePrices from '@/components/basePrices.vue';
 
 export default {
   props: {
     item: Object,
   },
-  components: { baseCounter },
+  components: { baseCounter, basePrices },
   computed: {
     amount: {
       get() {
@@ -55,8 +60,8 @@ export default {
   width: 100%;
   font-size: 12px;
   &__img {
-    object-fit: cover;
-    flex: 0 1 0;
+    width: 44px;
+    object-fit: contain;
   }
   &__about-item {
     display: flex;
@@ -67,42 +72,22 @@ export default {
   &__title {
     margin: 0;
     padding: 0;
+    padding-bottom: 5px;
     font-size: 12px;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+  }
+  &__title--wrap {
+    white-space: nowrap;
   }
   &__offer {
     font-size: 8px;
     background-color: #FFEBBF;
     width: fit-content;
-    padding: 2px 5px;
+    padding: 0 5px;
+    padding-bottom: 5px;
     margin: 5px 0;
     border-radius: 3px;
-  }
-  &__prices {
-    font-size: 12px;
-  }
-  &__price {
-    font-weight: 700;
-    margin-right: 10px;
-  }
-  &__price-detail {
-    position: relative;
-    color: #878786;
-  }
-  &__price-detail::before {
-    position: absolute;
-    content: ".";
-    top: 0;
-    left: -5px;
-  }
-  &__current-price {
-    display: block;
-  }
-  &__price-old {
-    text-decoration: line-through;
-    color: #878786;
   }
   &__details {
     position: absolute;
@@ -124,6 +109,16 @@ export default {
     background-size: 12px 6px;
     background-position: center;
     background-repeat: no-repeat;
+  }
+}
+// Переназначение стилей компонента basePrices
+
+.base-prices {
+  &__price-detail::before {
+    position: absolute;
+    content: ".";
+    bottom: 25%;
+    left: -5px;
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
 <div>
   <div class="header">
+    <!-- TODO: Подставить в title название страницы из роутера -->
     <h2 class="title">Cart</h2>
     <!-- <router-link tag="button" class="back-btn" :to="{ name: 'cart' }"></router-link> -->
     <button class="back-btn" @click.prevent="goBack"></button>
