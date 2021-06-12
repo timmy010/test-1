@@ -1,5 +1,4 @@
 <template>
-<div>
   <div class="content product-about">
     <div class="product-about-prop">
       <ul class="product-about-prop__list">
@@ -33,30 +32,21 @@
     </div>
     <baseCategories/>
   </div>
-  <h2 class="product__title">Buy with this product</h2>
-  <baseSlider/>
-</div>
 </template>
 
 <script>
 import baseCounter from '@/components/baseCounter.vue';
 import baseLike from '@/components/baseLike.vue';
 import basePrices from '@/components/basePrices.vue';
-import baseCategories from '@/components/baseCategories.vue';
-import baseSlider from '@/components/baseSlider.vue';
 
 export default {
+  props: {
+    product: Object,
+  },
   components: {
-    basePrices, baseCounter, baseCategories, baseSlider, baseLike,
+    basePrices, baseCounter, baseLike,
   },
   computed: {
-    productId() {
-      return +this.$route.params.id;
-    },
-    product() {
-      const thisProduct = this.$store.state.cartProducts.find((product) => product.id === this.productId);
-      return thisProduct;
-    },
     amount: {
       get() {
         return this.product.amount;

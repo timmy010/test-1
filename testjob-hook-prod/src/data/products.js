@@ -6,6 +6,7 @@ export default [
     // oldPrice: 1.59,
     // offer: '-20%',
     image: 'item.png',
+    gallery: ['item.png', 'item.png', 'item.png'],
     amount: 0,
   },
   {

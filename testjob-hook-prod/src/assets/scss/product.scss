@@ -3,11 +3,7 @@
 }
 .product-about {
     position: relative;
-    &__like {
-      position: absolute;
-      top: 11px;
-      right: 16px;
-    }
+
     .product-about-prop {
         display: flex;
         justify-content: center;
@@ -63,7 +59,7 @@
 
   // Переназначение стилей компонента basePrices
 
-.base-prices {
+  .product-about__price-and-counter .base-prices {
     &__prices {
       font-size: 12px;
     }
@@ -85,7 +81,7 @@
   
   // Переназначение стилей компонента baseCounter
   
-  .item-counter {
+  .product-about__price-and-counter .item-counter {
     display: flex;
     justify-content: flex-end;
     align-items: center;
