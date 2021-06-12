@@ -75,7 +75,6 @@
 
 <script>
 import cartItem from '@/components/cartItem.vue';
-import products from '@/data/products';
 
 export default {
   data: () => ({
@@ -92,7 +91,7 @@ export default {
   components: { cartItem },
   computed: {
     products() {
-      return products;
+      return this.$store.state.cartProducts;
     },
   },
   methods: {

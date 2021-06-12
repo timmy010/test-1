@@ -74,6 +74,9 @@
       color: #878786;
       font-size: 16px;
     }
+    &__price-detail::before {
+      display: none;
+    }
     &__current-price {
       flex-direction: column-reverse;
     }

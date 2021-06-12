@@ -8,6 +8,10 @@
 </div>
 </template>
 
+// TODO: изменить представление цен:
+// разделить priceDetail и price
+// Возможно, на 2 отдельных компонента.
+
 <script>
 export default {
   props: {

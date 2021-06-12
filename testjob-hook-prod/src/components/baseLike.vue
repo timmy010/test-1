@@ -15,5 +15,6 @@ export default {
       position: absolute;
       top: 11px;
       right: 16px;
+      cursor: pointer;
     }
 </style>
