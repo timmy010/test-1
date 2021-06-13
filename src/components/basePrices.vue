@@ -1,21 +1,24 @@
 <template>
 <div class="base-prices__prices">
   <div class="base-prices__current-price">
-    <span class="base-prices__price">£ {{ item.price }}</span>
-    <span class="base-prices__price-detail">1 pc / £{{ item.price }}</span>
+    <basePrice :price="item.price"/>
+    <baseDetailPrice :price="item.price"/>
   </div>
-  <span class="base-prices__price-old" v-if="item.oldPrice">£ {{ item.oldPrice }}</span>
+  <baseOldPrice :oldPrice="item.oldPrice"/>
 </div>
 </template>
 
-// TODO: изменить представление цен:
-// разделить priceDetail и price
-// Возможно, на 2 отдельных компонента.
-
 <script>
+import basePrice from '@/components/basePrice.vue';
+import baseDetailPrice from '@/components/baseDetailPrice.vue';
+import baseOldPrice from '@/components/baseOldPrice.vue';
+
 export default {
   props: {
     item: Object,
+  },
+  components: {
+    basePrice, baseDetailPrice, baseOldPrice,
   },
 };
 </script>
@@ -27,20 +30,8 @@ export default {
     display: flex;
     flex-direction: column;
   }
-  &__price {
-    font-weight: 700;
-    margin-right: 10px;
-  }
-  &__price-detail {
-    position: relative;
-    color: #878786;
-  }
   &__current-price {
     display: flex;
-  }
-  &__price-old {
-    text-decoration: line-through;
-    color: #878786;
   }
 }
 </style>

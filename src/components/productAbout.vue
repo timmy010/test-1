@@ -14,8 +14,6 @@
       который выбрал, т.к. визуально он лучше подходил к макету
       Заметил, что плагин вызывает ошибку вне используемого компонента.
       Кроме того, по идее, галерея изображений должна подгружаться с сервера.
-      Но пока что не разобрался как правильно динамически подгружать изображения
-      (использовать require c шаблонными строками, чтобы еще и линтер не ругался)
 
       По этим двум причинам плагин и соответственно этот компонент пока отключил.
 
@@ -31,7 +29,13 @@
     </div>
     <h2 class="product-about__title">{{ product.title }}</h2>
     <div class="product-about__price-and-counter">
-      <basePrices :item="product"/>
+      <div class="product-about__prices">
+        <div class="product-about__current-price">
+          <basePrice :price="product.price"/>
+          <baseDetailPrice :price="product.price"/>
+        </div>
+        <baseOldPrice :oldPrice="product.oldPrice"/>
+      </div>
       <baseCounter :amount.sync="amount"/>
     </div>
 
@@ -41,14 +45,21 @@
 <script>
 import baseCounter from '@/components/baseCounter.vue';
 import baseLike from '@/components/baseLike.vue';
-import basePrices from '@/components/basePrices.vue';
+
+import basePrice from '@/components/basePrice.vue';
+import baseDetailPrice from '@/components/baseDetailPrice.vue';
+import baseOldPrice from '@/components/baseOldPrice.vue';
 
 export default {
   props: {
     product: Object,
   },
   components: {
-    basePrices, baseCounter, baseLike,
+    baseCounter,
+    baseLike,
+    basePrice,
+    baseDetailPrice,
+    baseOldPrice,
   },
   computed: {
     amount: {

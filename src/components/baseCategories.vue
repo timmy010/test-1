@@ -1,9 +1,9 @@
 <template>
   <nav class="categories">
     <ul class="categories__list">
-      <li class="categories__item">Nutrition</li>
-      <li class="categories__item">Ingredients</li>
-      <li class="categories__item">Other</li>
+      <li class="categories__item"><a href="#" class="categories__item-link">Nutrition</a></li>
+      <li class="categories__item"><a href="#" class="categories__item-link">Ingredients</a></li>
+      <li class="categories__item"><a href="#" class="categories__item-link">Other</a></li>
     </ul>
   </nav>
 </template>
@@ -28,6 +28,10 @@ export default {
       font-size: 14px;
       font-weight: 700;
       color: #FFB000;
+    }
+    &__item-link {
+      text-decoration: none;
+      color: inherit;
     }
   }
 </style>
