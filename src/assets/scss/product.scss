@@ -55,30 +55,28 @@
         padding-bottom: 14px;
         border-bottom: 1px solid #EBEBEB;
     }
-  }
-
-  // Переназначение стилей компонента basePrices
-
-  .product-about__price-and-counter .base-prices {
     &__prices {
       font-size: 12px;
+      display: flex;
+      flex-direction: column;
     }
-    &__price {
-        font-size: 30px;
+    &__current-price {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    & .base-price {
+      font-size: 30px;
       font-weight: 700;
       margin-right: 10px;
       margin-top: 5px;
     }
-    &__price-detail {
+    & .base-price-detail {
       position: relative;
       color: #878786;
       font-size: 16px;
     }
-    &__price-detail::before {
+    & .base-price-detail::before {
       display: none;
-    }
-    &__current-price {
-      flex-direction: column-reverse;
     }
   }
   

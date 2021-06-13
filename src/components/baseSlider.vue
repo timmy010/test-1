@@ -32,7 +32,6 @@ export default {
       swiperOption: {
         slidesPerView: 'auto',
         spaceBetween: 8,
-        freeMode: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,

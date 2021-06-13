@@ -16,5 +16,6 @@ export default {
       top: 11px;
       right: 16px;
       cursor: pointer;
+      z-index: 999;
     }
 </style>
