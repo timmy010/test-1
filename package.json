@@ -10,6 +10,7 @@
   "dependencies": {
     "@wyhaya/vue-slide": "^1.0.2",
     "core-js": "^3.6.5",
+    "gsap": "^3.6.1",
     "normalize.css": "^8.0.1",
     "request": "^2.88.2",
     "swiper": "^6.7.0",
