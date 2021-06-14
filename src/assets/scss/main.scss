@@ -1,156 +1,91 @@
+@import '~normalize.css';
 
-  .title {
-    text-align: center;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-  }
-  .back-btn {
-    position: absolute;
-    top: 17px;
-    left: 23px;
-    width: 13px;
-    height: 14px;
-    background-image: url('../assets/img/back-btn.svg');
-    background-size: 13px 14px;
-    background-position: center;
-  }
-  .container {
-    width: 100%;
-    padding: 0 24px;
-  }
-  .content {
-    width: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 1px 18px 18px;
-    z-index: 9999;
-  }
-  .content-form__input-group {
-    display: flex;
-    justify-content: space-between;
-  }
-  .content-form__input-text {
-    position: relative;
-    width: calc(1/3*100% - (1 - 1/3)*10px);
-    margin: 0 0 10px;
-    padding: 0;
-  }
-  .content-form__input {
-    border: 1px solid #EBEBEB;
-    border-radius: 8px;
-    padding-left: 11px;
-    outline: none;
-  }
-  .content-form__input:focus {
-    border-color: #FFB000;
-  }
-  .content-form__input-label {
-    position: absolute;
-    top: 3px;
-    left: 11px;
-    font-size: 12px;
-    color: #C4C4C4;
-  }
-  .content-form__flat, .content-form__floor, .content-form__block {
-    width: 100%;
-    padding: 16px 11px 13px 11px;
-  }
-  .content-form__input-text--focus {
-    padding: 22px 11px 7px 11px;
-  }
-  .content-form__block {
-    margin-right: 0;
-  }
-
-// Select c dropdown на JS
-
-.dropdown {
-    width: 100%;
-    position: relative;
+* {
+  box-sizing: border-box;
 }
 
-.dropdown__button {
-    position: relative;
-    display: block;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    height: 100%;
-    border: 1px solid #EBEBEB;
-    border-radius: 8px;
-    padding: 5px 30px 24px 12px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+body {
+  max-width: 360px;
+  background: #E5E5E5;
+  font-family: 'Noto Sans';
 }
 
-.dropdown__button:focus, .dropdown__button--active {
-    outline: none;
+button {
+  background-color: unset;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.dropdown__button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    right: 9px;
-    background-image: url('../assets/img/arrow.svg');
-    background-position: center center;
-    background-size: 12px 12px;
-    background-repeat: no-repeat;
-    border: 0;
-    pointer-events: none;
+button:hover {
+  opacity: 0.5;
 }
 
-.rotate::after {
-    transform: translateY(-50%) rotate(180deg);
+.header {
+  position: fixed;
+  width: 360px;
+  height: 123px;
+  top: 0;
+  left: 0;
+  background: #FFB000;
+  border-radius: 0px 0px 8px 8px;
+  transition: height 0.3s;
 }
 
-.dropdown__list {
-    position: absolute;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    background: #fff;
-    overflow: hidden;
-    border-left: 1px solid #EBEBEB;
-    border-right: 1px solid #EBEBEB;
-    border-radius: 8px;
-    width: 100%;
-    z-index: 1;
+.header--active {
+  height: 50px;
+  z-index: 999;
 }
 
-.dropdown__list--visible {
-    display: block;
+.header--disactive {
+  height: 123px;
+  z-index: unset;
 }
 
-.dropdown__list-item {
-    margin: 0;
-    padding: 0;
-    padding: 5px 32px 5px 12px;
-    cursor: pointer;
+.title {
+  text-align: center;
+  font-family: 'Mukta';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 0;
+  margin-left: 50%;
+  margin-top: 9px;
+  transform: translateX(-50%);
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.dropdown__list-item:last-child {
-    border-bottom: 1px solid #C8C5D1;
-}
-
-.dropdown__list-item:hover {
-    background: #E7E5EB50;
-}
-
-.dropdown__label {
+.back-btn {
   position: absolute;
-  bottom: 5px;
-  left: 12px;
-  font-size: 12px;
-  color: #C4C4C4;
+  top: 17px;
+  left: 23px;
+  width: 13px;
+  height: 14px;
+  background-image: url('../assets/img/back-btn.svg');
+  background-size: 13px 14px;
+  background-position: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding: 0 24px;
+  z-index: 888;
+  margin-top: 50px;
+  height: 1000px;
+}
+
+.content {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1px 18px 18px;
+  z-index: 9999;
 }
 
 // Cart Items

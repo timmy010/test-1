@@ -1,6 +1,12 @@
 <template>
   <div class="cart-items__item">
-    <router-link tag="a" class="cart-item__details" :to="{name: 'product', params: {id: item.id}}">Details</router-link>
+    <router-link
+      tag="a"
+      class="cart-item__details"
+      :to="{name: 'product', params: {id: item.id, title: item.category}}"
+    >
+      Details
+    </router-link>
     <img :src="require(`@/assets/img/${item.image}`)" :alt="item.title" class="cart-item__img">
     <div class="cart-item__about-item">
       <p
@@ -12,13 +18,6 @@
         v-if="item.oldPrice"
       >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span>
       <span class="cart-item__offer" v-if="item.offer">Special offer:<strong>{{ item.offer }}</strong></span>
-      <!-- <div class="cart-item__prices">
-        <div class="cart-item__current-price">
-          <span class="cart-item__price">£ {{ item.price }}</span>
-          <span class="cart-item__price-detail">1 pc / £{{ item.price }}</span>
-        </div>
-        <span class="cart-item__price-old" v-if="item.oldPrice">£ {{ item.oldPrice }}</span>
-      </div> -->
       <basePrices :item="item"/>
     </div>
     <baseCounter :amount.sync="amount"/>

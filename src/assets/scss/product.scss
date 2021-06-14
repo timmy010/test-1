@@ -122,3 +122,67 @@
       background-image: url('../assets/img/increment.svg');
     }
   }
+.slider {
+  margin-bottom: 23px;
+}
+.nutrition {
+  border-bottom: 1px solid #E7E5E5;
+  &__title {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+  &__description {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Open Sans';
+  }
+  &__description-list {
+    color: #999999;
+  }
+  &__button {
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: #FFB000;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 17px;
+  }
+  &__button::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: -10px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/arrow-hide.svg");
+    background-size: 8px 4px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding-right: 10px;
+  }
+  &__items {
+    padding-top: 17px;
+    border-top: 1px solid #E7E5E5;
+    margin-top: 26px;
+    margin-bottom: 20px;
+    height: 100%;
+  }
+}
+.ingridients {
+  border-bottom: 1px solid #E7E5E5;
+  &__title {
+    font-size: 16px;
+  }
+  &__text {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.other {
+  &__title {
+    font-size: 16px;
+  }
+}
