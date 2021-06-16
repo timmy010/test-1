@@ -24,7 +24,13 @@
       <!-- TODO: Сделать плавную анимацию -->
       <!-- TODO: Сделать анимацию стрелки -->
       <productNutritions class="nutrition__items" v-show="!itemsIsHide"/>
-      <button class="nutrition__button" @click.prevent='hideNutrition'>{{ nutritionBtnText }}</button>
+      <button
+        class="nutrition__button"
+        :class='{ rotate: itemsIsHide }'
+        @click.prevent='hideNutrition'
+      >
+        {{ nutritionBtnText }}
+      </button>
     </div>
     <div class="ingridients">
       <h2 class="ingridients__title">Ingridients</h2>
