@@ -103,7 +103,6 @@ export default {
       background-color: #EBEBEB;
     }
     &__label {
-      width: 50%;
       text-align: center;
       color: #707070;
       font-weight: 700;
