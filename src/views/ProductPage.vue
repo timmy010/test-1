@@ -21,9 +21,9 @@
         <li class="nutrition__description-list-itemlist-item">Duis egestas semper dolor morbi purus.</li>
       </ul>
       </article>
-      <!-- TODO: Сделать плавную анимацию -->
-      <!-- TODO: Сделать анимацию стрелки -->
-      <productNutritions class="nutrition__items" v-show="!itemsIsHide"/>
+      <transition name="slide-out">
+        <productNutritions class="nutrition__items" v-show="!itemsIsHide"/>
+      </transition>
       <button
         class="nutrition__button"
         :class='{ rotate: itemsIsHide }'
@@ -90,4 +90,14 @@ export default {
 
 <style lang="scss">
   @import '@/assets/scss/product.scss';
+  .slide-out-enter-active,
+  .slide-out-leave-active {
+      transition: all 0.3s;
+  }
+
+  .slide-out-enter,
+  .slide-out-leave-to {
+      opacity: 0;
+      transform: translateY(-40px);
+  }
 </style>
