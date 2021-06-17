@@ -22,7 +22,11 @@
       </ul>
       </article>
       <transition name="slide-out">
-        <productNutritions class="nutrition__items" v-show="!itemsIsHide"/>
+        <productNutritions
+          class="nutrition__items"
+          v-show="!itemsIsHide"
+          :product = "product"
+        />
       </transition>
       <button
         class="nutrition__button"

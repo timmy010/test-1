@@ -5,6 +5,32 @@ export default [{
   category: 'Milk & Cheese',
   image: 'item.png',
   gallery: ['item.png', 'item.png', 'item.png'],
+  nutritions: [
+    {
+      id: 1, value: '28', label: 'Kkal.', ri: 4,
+    },
+    {
+      id: 2, value: '1.3 g', label: 'Proteins', ri: 10,
+    },
+    {
+      id: 3, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 4, value: '28', label: 'Carbs', ri: 10,
+    },
+    {
+      id: 5, value: '6,4 mg', label: 'Niacin', ri: 40,
+    },
+    {
+      id: 6, value: '0,8 g', label: 'Vitamin B6', ri: 57,
+    },
+    {
+      id: 7, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 8, value: '28', label: 'Carbs', ri: 10,
+    },
+  ],
   buyWithThis: [{
     id: 1,
     title: 'Best-in 10 British Big Eggs Eggs',
@@ -85,6 +111,32 @@ export default [{
   category: 'Milk & Cheese',
   oldPrice: 2.59,
   image: 'item.png',
+  nutritions: [
+    {
+      id: 1, value: '28', label: 'Kkal.', ri: 4,
+    },
+    {
+      id: 2, value: '1.3 g', label: 'Proteins', ri: 10,
+    },
+    {
+      id: 3, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 4, value: '28', label: 'Carbs', ri: 10,
+    },
+    {
+      id: 5, value: '6,4 mg', label: 'Niacin', ri: 40,
+    },
+    {
+      id: 6, value: '0,8 g', label: 'Vitamin B6', ri: 57,
+    },
+    {
+      id: 7, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 8, value: '28', label: 'Carbs', ri: 10,
+    },
+  ],
   amount: 0,
   params: [
     {
@@ -125,6 +177,32 @@ export default [{
   offer: '-20%',
   image: 'item.png',
   amount: 0,
+  nutritions: [
+    {
+      id: 1, value: '28', label: 'Kkal.', ri: 4,
+    },
+    {
+      id: 2, value: '1.3 g', label: 'Proteins', ri: 10,
+    },
+    {
+      id: 3, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 4, value: '28', label: 'Carbs', ri: 10,
+    },
+    {
+      id: 5, value: '6,4 mg', label: 'Niacin', ri: 40,
+    },
+    {
+      id: 6, value: '0,8 g', label: 'Vitamin B6', ri: 57,
+    },
+    {
+      id: 7, value: '0 g', label: 'Fats', ri: 12,
+    },
+    {
+      id: 8, value: '28', label: 'Carbs', ri: 10,
+    },
+  ],
   params: [
     {
       title: 'Страна производства',
