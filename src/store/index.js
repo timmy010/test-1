@@ -1,9 +1,8 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import products from '../data/products';
+import Vue from "vue";
+import Vuex from "vuex";
+import products from "../data/products";
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   state: {
     amount: 1,
@@ -16,11 +15,6 @@ export default new Vuex.Store({
       if (item) {
         item.amount = amount;
       }
-    },
-  },
-  getters: {
-    cartTotalPrice(state) {
-      return state.cartProducts.reduce((acc, item) => (item.price * item.amount) + acc, 0);
     },
   },
 });

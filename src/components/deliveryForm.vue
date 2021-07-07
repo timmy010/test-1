@@ -1,16 +1,11 @@
 <template>
   <form class="content__form">
     <div class="dropdown">
-      <button
-        class="dropdown__button dropdown__button--rotate"
-        @click.prevent="openDropdown"
-      >
+      <button class="dropdown__button dropdown__button--rotate" @click.prevent="openDropdown">
         SE1 6DR, 42 Newington Causeway
       </button>
       <ul class="dropdown__list" v-if="isDropdownOn">
-        <li class="dropdown__list-item" data-value="phone">
-          SE1 6DR, 42 Newington Causeway
-        </li>
+        <li class="dropdown__list-item" data-value="phone">SE1 6DR, 42 Newington Causeway</li>
       </ul>
       <span class="dropdown__label">London</span>
     </div>
@@ -39,9 +34,7 @@
           @blur="focusedFloor = !floorValue ? false : true"
           :class="{ 'content-form__input-text--focus': focusedFloor }"
         />
-        <span class="content-form__input-label" v-show="focusedFloor"
-          >Floor</span
-        >
+        <span class="content-form__input-label" v-show="focusedFloor">Floor</span>
       </div>
       <div class="content-form__input-text">
         <input
@@ -54,9 +47,7 @@
           @blur="focusedBlock = !blockValue ? false : true"
           :class="{ 'content-form__input-text--focus': focusedBlock }"
         />
-        <span class="content-form__input-label" v-show="focusedBlock"
-          >Block</span
-        >
+        <span class="content-form__input-label" v-show="focusedBlock">Block</span>
       </div>
     </div>
   </form>
@@ -90,20 +81,20 @@ export default {
 
 .content-form__input-text {
   position: relative;
-  width: calc(1/3*100% - (1 - 1/3)*10px);
+  width: calc(1 / 3 * 100% - (1 - 1 / 3) * 10px);
   margin: 0 0 10px;
   padding: 0;
 }
 
 .content-form__input {
-  border: 1px solid #EBEBEB;
+  border: 1px solid #ebebeb;
   border-radius: 8px;
   padding-left: 11px;
   outline: none;
 }
 
 .content-form__input:focus {
-  border-color: #FFB000;
+  border-color: #ffb000;
 }
 
 .content-form__input-label {
@@ -111,7 +102,7 @@ export default {
   top: 3px;
   left: 11px;
   font-size: 12px;
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .content-form__flat,
@@ -141,7 +132,7 @@ export default {
   text-align: left;
   cursor: pointer;
   height: 100%;
-  border: 1px solid #EBEBEB;
+  border: 1px solid #ebebeb;
   border-radius: 8px;
   padding: 5px 30px 24px 12px;
   margin-bottom: 10px;
@@ -164,7 +155,7 @@ export default {
   width: 12px;
   height: 12px;
   right: 9px;
-  background-image: url('../assets/img/arrow.svg');
+  background-image: url("../assets/img/arrow.svg");
   background-position: center center;
   background-size: 12px 12px;
   background-repeat: no-repeat;
@@ -184,8 +175,8 @@ export default {
   list-style-type: none;
   background: #fff;
   overflow: hidden;
-  border-left: 1px solid #EBEBEB;
-  border-right: 1px solid #EBEBEB;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
   border-radius: 8px;
   width: 100%;
   z-index: 1;
@@ -203,11 +194,11 @@ export default {
 }
 
 .dropdown__list-item:last-child {
-  border-bottom: 1px solid #C8C5D1;
+  border-bottom: 1px solid #c8c5d1;
 }
 
 .dropdown__list-item:hover {
-  background: #E7E5EB50;
+  background: #e7e5eb50;
 }
 
 .dropdown__label {
@@ -215,6 +206,6 @@ export default {
   bottom: 5px;
   left: 12px;
   font-size: 12px;
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 </style>

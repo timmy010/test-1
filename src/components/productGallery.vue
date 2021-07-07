@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import slide from '@wyhaya/vue-slide';
+import slide from "@wyhaya/vue-slide";
 
 export default {
   data() {
     return {
       slide: [
-        require('../assets/img/item.png'), // eslint-disable-line
-        require('../assets/img/item.png'), // eslint-disable-line
-        require('../assets/img/item.png'), // eslint-disable-line
+        require("../assets/img/item.png"), // eslint-disable-line
+        require("../assets/img/item.png"), // eslint-disable-line
+        require("../assets/img/item.png"), // eslint-disable-line
       ],
     };
   },
@@ -25,10 +25,10 @@ export default {
 </script>
 
 <style lang="scss">
-  .vue-slide .spot > div {
-    border-color: #000;
-  }
-  .vue-slide .spot > div.cur {
-    background-color: #000;
-  }
+.vue-slide .spot > div {
+  border-color: #000;
+}
+.vue-slide .spot > div.cur {
+  background-color: #000;
+}
 </style>

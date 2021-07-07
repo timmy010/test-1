@@ -22,37 +22,35 @@
 </template>
 
 <script>
-export default {
-
-};
+export default {};
 </script>
 
 <style lang="scss">
-  .cart-summary {
-    &__list {
-      list-style: none;
-      margin: 0;
-      margin-top: 18px;
-      padding: 0;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #F2F2F2;
-    }
-    &__list-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
-    &__list-item:last-child {
-      margin-bottom: 0;
-    }
-    &__total {
-      display: flex;
-      justify-content: space-between;
-      font-family: 'Mukta';
-      font-size: 24px;
-      font-weight: 700;
-      padding-top: 5px;
-    }
+.cart-summary {
+  &__list {
+    list-style: none;
+    margin: 0;
+    margin-top: 18px;
+    padding: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f2f2f2;
   }
+  &__list-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  &__list-item:last-child {
+    margin-bottom: 0;
+  }
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Mukta";
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: 5px;
+  }
+}
 </style>

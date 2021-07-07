@@ -1,11 +1,6 @@
 <template>
   <div class="cart-payment">
-    <input
-      type="text"
-      class="cart-payment__input"
-      placeholder="GHYU907H"
-      v-model="paymentValue"
-    />
+    <input type="text" class="cart-payment__input" placeholder="GHYU907H" v-model="paymentValue" />
   </div>
 </template>
 
