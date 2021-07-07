@@ -1,14 +1,10 @@
 <template>
   <ul class="other__list">
-      <li
-        class="other__list-item"
-        v-for="param in productParams"
-        :key="param.title"
-      >
-        <span class="other__item-title">{{ param.title }}</span>
-        <span class="other__item-value">{{ param.value }}</span>
-      </li>
-    </ul>
+    <li class="other__list-item" v-for="param in productParams" :key="param.title">
+      <span class="other__item-title">{{ param.title }}</span>
+      <span class="other__item-value">{{ param.value }}</span>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -35,7 +31,7 @@ export default {
   &__list-item {
     display: flex;
     justify-content: space-between;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 12px;
     margin: 0;
     padding: 0;

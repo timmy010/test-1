@@ -1,62 +1,55 @@
 <template>
-<div class="container">
-  <div class="content">
-    <productAbout :product="product"/>
-    <baseCategories/>
-  </div>
-  <h2 class="product__title">Buy with this product</h2>
-  <baseSlider :product="product" class="slider"/>
-  <div class="content">
-    <div class="nutrition">
-      <h2 class="nutrition__title">Nutrition</h2>
-      <article class="nutrition__description">
-        <p class="nutrition__description-text">
-        Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit. Ultrices at egestas tempus duis
-        egestas semper dolor <b>morbi purus</b>. Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit.
-        Ultrices at egestas tempus duis egestas semper dolor <b>morbi purus.</b></p>
-      <ul class="nutrition__description-list">
-        <li class="nutrition__description-list-item">Lorem ipsum dolor sit amet</li>
-        <li class="nutrition__description-list-itemlist-item">Consectetur adipiscing elit</li>
-        <li class="nutrition__description-list-itemlist-item">Ultrices at egestas tempus</li>
-        <li class="nutrition__description-list-itemlist-item">Duis egestas semper dolor morbi purus.</li>
-      </ul>
-      </article>
-      <transition name="slide-out">
-        <productNutritions
-          class="nutrition__items"
-          v-show="!itemsIsHide"
-          :product = "product"
-        />
-      </transition>
-      <button
-        class="nutrition__button"
-        :class='{ rotate: itemsIsHide }'
-        @click.prevent='hideNutrition'
-      >
-        {{ nutritionBtnText }}
-      </button>
+  <div class="container">
+    <div class="content">
+      <productAbout :product="product" />
+      <baseCategories />
     </div>
-    <div class="ingridients">
-      <h2 class="ingridients__title">Ingridients</h2>
-      <p class="ingridients__text">
-        Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit.
-        Ultrices at egestas tempus duis egestas semper dolor <b>morbi purus</b>.
-      </p>
-    </div>
-    <div class="other">
-      <h2 class="other__title">Other</h2>
-      <productParams :product="product"/>
+    <h2 class="product__title">Buy with this product</h2>
+    <baseSlider :product="product" class="slider" />
+    <div class="content">
+      <div class="nutrition">
+        <h2 class="nutrition__title">Nutrition</h2>
+        <article class="nutrition__description">
+          <p class="nutrition__description-text">
+            Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit. Ultrices at egestas tempus duis egestas
+            semper dolor <b>morbi purus</b>. Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit. Ultrices at
+            egestas tempus duis egestas semper dolor <b>morbi purus.</b>
+          </p>
+          <ul class="nutrition__description-list">
+            <li class="nutrition__description-list-item">Lorem ipsum dolor sit amet</li>
+            <li class="nutrition__description-list-itemlist-item">Consectetur adipiscing elit</li>
+            <li class="nutrition__description-list-itemlist-item">Ultrices at egestas tempus</li>
+            <li class="nutrition__description-list-itemlist-item">Duis egestas semper dolor morbi purus.</li>
+          </ul>
+        </article>
+        <transition name="slide-out">
+          <productNutritions class="nutrition__items" v-show="!itemsIsHide" :product="product" />
+        </transition>
+        <button class="nutrition__button" :class="{ rotate: itemsIsHide }" @click.prevent="hideNutrition">
+          {{ nutritionBtnText }}
+        </button>
+      </div>
+      <div class="ingridients">
+        <h2 class="ingridients__title">Ingridients</h2>
+        <p class="ingridients__text">
+          Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit. Ultrices at egestas tempus duis egestas semper
+          dolor <b>morbi purus</b>.
+        </p>
+      </div>
+      <div class="other">
+        <h2 class="other__title">Other</h2>
+        <productParams :product="product" />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import productAbout from '@/components/productAbout.vue';
-import baseCategories from '@/components/baseCategories.vue';
-import baseSlider from '@/components/baseSlider.vue';
-import productNutritions from '@/components/productNutritions.vue';
-import productParams from '@/components/productParams.vue';
+import productAbout from "@/components/productAbout.vue";
+import baseCategories from "@/components/baseCategories.vue";
+import baseSlider from "@/components/baseSlider.vue";
+import productNutritions from "@/components/productNutritions.vue";
+import productParams from "@/components/productParams.vue";
 
 export default {
   data() {
@@ -80,7 +73,7 @@ export default {
       return thisProduct;
     },
     nutritionBtnText() {
-      const text = this.itemsIsHide ? 'Show' : 'Hide';
+      const text = this.itemsIsHide ? "Show" : "Hide";
       return text;
     },
   },
@@ -93,15 +86,15 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '@/assets/scss/product.scss';
-  .slide-out-enter-active,
-  .slide-out-leave-active {
-      transition: all 0.3s;
-  }
+@import "@/assets/scss/product.scss";
+.slide-out-enter-active,
+.slide-out-leave-active {
+  transition: all 0.3s;
+}
 
-  .slide-out-enter,
-  .slide-out-leave-to {
-      opacity: 0;
-      transform: translateY(-40px);
-  }
+.slide-out-enter,
+.slide-out-leave-to {
+  opacity: 0;
+  transform: translateY(-40px);
+}
 </style>

@@ -1,19 +1,19 @@
 <template>
-  <swiper class='swiper' :options='swiperOption'>
+  <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="item in products" :key="item.id">
-      <productSliderItem :product="item"/>
+      <productSliderItem :product="item" />
     </swiper-slide>
   </swiper>
 </template>
 
 <script>
-import productSliderItem from '@/components/productSliderItem.vue';
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/swiper-bundle.css';
+import productSliderItem from "@/components/productSliderItem.vue";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/swiper-bundle.css";
 
 export default {
-  name: 'swiper-example-carousel-mode',
-  title: 'Auto slides per view / Carousel mode',
+  name: "swiper-example-carousel-mode",
+  title: "Auto slides per view / Carousel mode",
   props: {
     product: Object,
   },
@@ -30,10 +30,10 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         spaceBetween: 8,
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true,
         },
       },
@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .swiper-slide {
   width: 152px;
 }

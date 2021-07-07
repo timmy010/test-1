@@ -9,29 +9,27 @@
 </template>
 
 <script>
-export default {
-
-};
+export default {};
 </script>
 
 <style lang="scss">
-  .categories {
-    &__list {
-      margin: 0;
-      padding: 0;
-      padding-top: 10px;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-    }
-    &__item {
-      font-size: 14px;
-      font-weight: 700;
-      color: #FFB000;
-    }
-    &__item-link {
-      text-decoration: none;
-      color: inherit;
-    }
+.categories {
+  &__list {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
   }
+  &__item {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffb000;
+  }
+  &__item-link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
 </style>

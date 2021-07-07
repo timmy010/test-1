@@ -3,30 +3,30 @@
     <router-link
       tag="a"
       class="cart-item__details"
-      :to="{name: 'product', params: {id: item.id, title: item.category}}"
+      :to="{ name: 'product', params: { id: item.id, title: item.category } }"
     >
       Details
     </router-link>
-    <img :src="require(`@/assets/img/${item.image}`)" :alt="item.title" class="cart-item__img">
+    <img :src="require(`@/assets/img/${item.image}`)" :alt="item.title" class="cart-item__img" />
     <div class="cart-item__about-item">
-      <p
-        class="cart-item__title"
-        :class="{ 'cart-item__title--wrap': item.offer || item.oldPrice }"
-      >{{ item.title }}</p>
-      <span
-        class="cart-item__offer"
-        v-if="item.oldPrice"
-      >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span>
-      <span class="cart-item__offer" v-if="item.offer">Special offer:<strong>{{ item.offer }}</strong></span>
-      <basePrices :item="item"/>
+      <p class="cart-item__title" :class="{ 'cart-item__title--wrap': item.offer || item.oldPrice }">
+        {{ item.title }}
+      </p>
+      <span class="cart-item__offer" v-if="item.oldPrice"
+        >Price has been changed:<strong>(£{{ item.oldPrice }})</strong></span
+      >
+      <span class="cart-item__offer" v-if="item.offer"
+        >Special offer:<strong>{{ item.offer }}</strong></span
+      >
+      <basePrices :item="item" />
     </div>
-    <baseCounter :amount.sync="amount"/>
+    <baseCounter :amount.sync="amount" />
   </div>
 </template>
 
 <script>
-import baseCounter from '@/components/baseCounter.vue';
-import basePrices from '@/components/basePrices.vue';
+import baseCounter from "@/components/baseCounter.vue";
+import basePrices from "@/components/basePrices.vue";
 
 export default {
   props: {
@@ -39,7 +39,7 @@ export default {
         return this.item.amount;
       },
       set(value) {
-        this.$store.commit('updateCartProductAmount', { productId: this.item.id, amount: value });
+        this.$store.commit("updateCartProductAmount", { productId: this.item.id, amount: value });
       },
     },
   },
@@ -50,7 +50,7 @@ export default {
 .cart-items__item {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #C4C4C450;
+  border-bottom: 1px solid #c4c4c450;
   padding: 12px 0;
   position: relative;
 }
@@ -81,7 +81,7 @@ export default {
   }
   &__offer {
     font-size: 8px;
-    background-color: #FFEBBF;
+    background-color: #ffebbf;
     width: fit-content;
     padding: 0 5px;
     padding-bottom: 5px;
@@ -104,7 +104,7 @@ export default {
     content: "";
     width: 12px;
     height: 6px;
-    background-image: url('../assets/img/arrow-details.svg');
+    background-image: url("../assets/img/arrow-details.svg");
     background-size: 12px 6px;
     background-position: center;
     background-repeat: no-repeat;
